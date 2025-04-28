@@ -5,4 +5,4 @@ def hello(request):
     greetings = {
         "greetings": "Assalam-O-Alaikum World From Django."
     }
-    return render(request, "start/index.html", context=greetings)
+    return render(request, "start/index.html", greetings)
