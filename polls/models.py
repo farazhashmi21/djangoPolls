@@ -1,6 +1,4 @@
 import datetime
-from datetime import timezone
-from tkinter.constants import CASCADE
 from django.utils import timezone
 from django.db import models
 
