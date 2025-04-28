@@ -6,14 +6,19 @@
     <title>Document</title>
 </head>
 <body>
+<h1>Question Lists</h1>
 {% if latest_question_list %}
 <ul>
+{% for question in latest_question_list %}
     <li>
-        <a href="/polls/{{ question.id }}">{{ question.question_text }}</a>
+        <a href="/polls/{{ question.id }}">
+            {{ question.question_text }}
+        </a>
     </li>
+{% endfor %}
 </ul>
 {% else %}
-<p>No Polls are available.</p>
+<p>No Question Found</p>
 {% endif %}
 </body>
 </html>
