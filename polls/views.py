@@ -1,10 +1,17 @@
-from django.http import HttpResponse, Http404
+from tempfile import template
+
+from django.http import HttpResponse
+from django.shortcuts import render
+
 from polls.models import Question
+from django.template import loader
 # Create your views here.
 def index(request):
     question_list = Question.objects.order_by("pub_date")[:5]
     output = ", ".join(q.question_text for q in question_list)
-    return HttpResponse(output)
+    context = {"latest_question_list": question_list}
+    return HttpResponse(template.render(context, request))
+    # return HttpResponse(output)
     # return HttpResponse("Assalam-O-Alaikum World, From Polls App.")
 
 def detail(request, question_id):
