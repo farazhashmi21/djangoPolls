@@ -1,15 +1,14 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+# from django.template import loader
+# from .models import Question
 
-from polls.models import Question
-from django.template import loader
 
 # Create your views here.
 def index(request):
-    question_list = Question.objects.order_by("pub_date")[:5]
-    context = {"latest_question_list": question_list}
-    template = loader.get_template("polls/index.html")
-    return HttpResponse(template.render(context, request))
+    # question_list = Question.objects.order_by("pub_date")[:5]
+    # context = {"latest_question_list": question_list}
+    # template = loader.get_template("polls/index.html")
+    # return HttpResponse(template.render(context, request))
     # return HttpResponse(output)
     # return HttpResponse("Assalam-O-Alaikum World, From Polls App.")
 
