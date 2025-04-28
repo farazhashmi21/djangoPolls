@@ -2,6 +2,7 @@ from django.http import HttpResponse
 # from django.template import loader
 from polls.models import Question
 from django.shortcuts import render
+from django.http import Http404
 
 # Create your views here.
 def index(request):
@@ -12,7 +13,12 @@ def index(request):
     # return HttpResponse(template.render(context, request))
 
 def detail(request, question_id):
-    return HttpResponse("You are looking at Question: %s." % question_id)
+    try:
+        quesiion = Question.objects.get(pk=question_id)
+    except Question.DoesNotExist:
+        raise Http404("Question Does Not Exist!")
+    return render(request, "polls/detail.html", {"question": quesiion})
+    # return HttpResponse("You are looking at Question: %s." % question_id)
 
 def result(request, question_id):
     response = "You are looking at the result of Question: %s"
