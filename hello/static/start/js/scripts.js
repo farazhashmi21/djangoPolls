@@ -32,3 +32,4 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+console.log("Assalam-O-Alaikum Wold From Django");
