@@ -5,7 +5,7 @@ def index(request):
     return HttpResponse("Assalam-O-Alaikum World, From Polls App.")
 
 def detail(request, question_id):
-    question_list = Question.objects.order_by("pub_data")[:5]
+    question_list = Question.objects.order_by("pub_date")[:5]
     output = ", ".join(q.question_text for q in question_list)
     return HttpResponse(output)
     # return HttpResponse("You are looking at Question: %s." % question_id)
