@@ -7,10 +7,9 @@ from django.template import loader
 # Create your views here.
 def index(request):
     question_list = Question.objects.order_by("pub_date")[:5]
-    output = ", ".join(q.question_text for q in question_list)
     context = {"latest_question_list": question_list}
-    return render(request, "polls/index.html", context)
-    # return HttpResponse(template.render(context, request))
+    template = loader.get_template("polls/index.html")
+    return HttpResponse(template.render(context, request))
     # return HttpResponse(output)
     # return HttpResponse("Assalam-O-Alaikum World, From Polls App.")
 
