@@ -10,13 +10,9 @@
 <form name="voteForm" action = "{% url 'polls:vote' question.id%}" method="POST">
     {% csrf_token %}
 <p>{{ question.question_text }}</p>
-<ul>
     {% for choice in question.choice_set.all %}
-    <li>
-        {{ choice.choice_text }}
-    </li>
+    <input type="radio" value="{{ choice.id }}" name="choice"/>{{ choice.choice_text }}
     {% endfor %}
-</ul>
     <input type="submit" name="voteBTN" value="Vote"/>
 </form>
 </body>
