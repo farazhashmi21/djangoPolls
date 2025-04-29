@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Question Details:</h1>
-<form name="voteForm" action = "{% url 'polls:vote'  question.question_id %}" method="POST">
+<form name="voteForm" action = "{% url 'polls:vote' question.id%}" method="POST">
     {% csrf_token %}
 <p>{{ question.question_text }}</p>
 <ul>
