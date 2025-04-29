@@ -8,12 +8,21 @@
 <body>
 <h1>Question Details:</h1>
 <p>{{ question.question_text }}</p>
-    <ul>
+<table class="">
+    <tr>
+        <th>Beverage</th>
+        <th>Votes</th>
+    </tr>
     {% for choice in question.choice_set.all %}
-        <li>
-            {{ choice.choice_text }}
-        </li>
+    <tr>
+        <td>{{ choice.choice_text }}</td>
+        <td>{{ choice.votes }}</td>
+    </tr>
     {% endfor %}
+</table>
+    <ul>
+        <li><a href="{% url 'hello:home' %}">Home</a></li>
+        <li><a href="{% url 'polls:home' %}">Polls</a></li>
     </ul>
 </body>
 </html>
