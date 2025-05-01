@@ -1,0 +1,13 @@
+/** Reset Default Styling. **/
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+.vote_image{
+  height: 500px;
+  width: 500px;
+  background-color: #000000;
+  color: #ffffff;
+  background-image: url('../images/vote.png');
+}
