@@ -12,10 +12,9 @@
 {% block nav-sidebar %}{% endblock %}
 
 {% block content %}
-<h1>Assalam-O-Alaikum and Wellcome To Django Polls Admin Console</h1>
-
 <div id="content-main">
-  {% include "admin/app_list.html" with app_list=app_list show_changelinks=True %}
+    <p><b>Assalam-O-Alaikum and Wellcome To Django Polls Admin Console:</b></p>
+    {% include "admin/app_list.html" with app_list=app_list show_changelinks=True %}
 </div>
 {% endblock %}
 
