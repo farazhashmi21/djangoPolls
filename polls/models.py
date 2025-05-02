@@ -1,9 +1,7 @@
 import datetime
-from pydoc import describe
-from xmlrpc.client import boolean
-
 from django.utils import timezone
 from django.db import models
+from django.contrib import admin
 
 # Create your models here.
 class Question(models.Model):
