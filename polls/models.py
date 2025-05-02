@@ -11,7 +11,7 @@ class Question(models.Model):
         return self.question_text
     @admin.display(
         boolean=True,
-        odering = "pub_date",
+        ordering = "pub_date",
         description = "Published Recently",
     )
 
