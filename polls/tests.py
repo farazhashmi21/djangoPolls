@@ -1,15 +1,18 @@
-from django.test import TestCase
 import datetime
-from django.utils import timezone
-from polls.models import Question
+
+from django.test import TestCase
 from django.urls import reverse
+from django.utils import timezone
+
+from polls.models import Question
+
 
 # Create your tests here.
 
 class QuestionModelTest(TestCase):
     def test_was_published_recently_with_future_question(self):
         time = timezone.now() + datetime.timedelta(days=30)
-        future_question = Question(pub_date = time)
+        future_question = Question(pub_date=time)
         self.assertIs(future_question.was_published_recently(), False)
 
     def test_was_published_recently_with_old_question(self):
@@ -95,6 +98,8 @@ class QuestionModelTest(TestCase):
                 response.context["latest_question_list"],
                 [question2, question1],
             )
+
+
 class QuestionDetailViewTests(TestCase):
     def test_future_question(self):
         """

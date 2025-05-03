@@ -2,18 +2,18 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>Document</title>
 </head>
 <body>
 <h1>Question Details:</h1>
-<form name="voteForm" action = "{% url 'polls:vote' question.id%}" method="POST">
+<form action="{% url 'polls:vote' question.id%}" method="POST" name="voteForm">
     {% csrf_token %}
-<p>{{ question.question_text }}</p>
+    <p>{{ question.question_text }}</p>
     {% for choice in question.choice_set.all %}
-    <input type="radio" value="{{ choice.id }}" name="choice"/>{{ choice.choice_text }}
+    <input name="choice" type="radio" value="{{ choice.id }}"/>{{ choice.choice_text }}
     {% endfor %}
-    <input type="submit" name="voteBTN" value="Vote"/>
+    <input name="voteBTN" type="submit" value="Vote"/>
 </form>
 </body>
 </html>

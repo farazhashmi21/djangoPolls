@@ -3,23 +3,23 @@
 <head>
     {% load static %}
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static 'polls/assets/css/styles.css' %}">
-    <link rel="icon" type="image/x-icon" href="{% static '/polls/assets/images/favicon.ico' %}" />
+    <link href="{% static 'polls/assets/css/styles.css' %}" rel="stylesheet">
+    <link href="{% static '/polls/assets/images/favicon.ico' %}" rel="icon" type="image/x-icon"/>
 </head>
 <body>
 <h1>Question Lists</h1>
 <div class="vote_image"></div>
 {% if latest_question_list %}
 <ul>
-{% for question in latest_question_list %}
+    {% for question in latest_question_list %}
     <li>
         <a href="{% url 'polls:detail' question.id %}">
             {{ question.question_text }}
         </a>
     </li>
-{% endfor %}
+    {% endfor %}
 </ul>
 {% else %}
 <p>No Question Found</p>
