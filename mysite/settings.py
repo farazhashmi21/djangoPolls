@@ -13,9 +13,6 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 
-import debug_toolbar.middleware
-from django.conf.global_settings import STATICFILES_DIRS
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -39,6 +36,7 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     'debug_toolbar',
+    'django.contrib.staticfiles',
     'polls.apps.PollsConfig',
     'hello.apps.HelloConfig',
     'django.contrib.admin',
@@ -46,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
 ]
 
 MIDDLEWARE = [
